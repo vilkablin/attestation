@@ -1,0 +1,11 @@
+@use "./reset.scss" as *;
+@use "./consts.scss" as *;
+@forward "mixins";
+
+body {
+    font-family: "Involve";
+}
+
+h2 {
+    @include involve_700_48;
+}

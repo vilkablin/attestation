@@ -1,0 +1,27 @@
+.root {
+    display: flex;
+    padding: 40px 0;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        @include involve_700_20;
+        color: var(--accent_green);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .nav__a {
+            @include involve_500_16;
+            color: var(--accent_green);
+            @include transition;
+
+            &:hover {
+                color: var(--black_green);
+            }
+        }
+    }
+}

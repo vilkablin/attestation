@@ -1,0 +1,50 @@
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+    height: 500px;
+
+    .image {
+        position: absolute;
+        right: 0;
+        width: 700px;
+
+        @include respond(laptop1280) {
+            width: 620px;
+        }
+        @include respond(laptop1024) {
+            width: 520px;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        z-index: 10;
+
+        @include respond(laptop1024) {
+            gap: 32px;
+        }
+        @include respond(tablet768) {
+            gap: 24px;
+        }
+        @include respond(mobile640) {
+            gap: 16px;
+        }
+
+        h1 {
+            @include involve_700_96;
+            color: var(--black);
+
+            span {
+                color: var(--accent_green);
+            }
+        }
+
+        p {
+            @include gilroy_300_24;
+        }
+    }
+}

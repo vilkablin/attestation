@@ -1,0 +1,74 @@
+:root {
+    --accent_green: #09c690;
+    --light_green: #e1fbf3;
+    --dark_green: #00a677;
+    --black_green: #005c42;
+    --light_blue: #bfdbf5;
+    --light_red: #ffd1c0;
+    --red: #a10e0e;
+    --white_red: #ffeee7;
+    --black: #3c3c3d;
+    --white: #ffffff;
+    --white_green: #ecfff9;
+}
+
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-BoldOblique.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-Medium.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-MediumOblique.ttf");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-Oblique.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-SemiBold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Involve";
+    src: url("../../public/fonts/Involve-SemiBoldOblique.ttf");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../../public/fonts/Gilroy-Light.otf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../../public/fonts/Gilroy-ExtraBold.otf");
+    font-weight: 800;
+}

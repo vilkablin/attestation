@@ -1,0 +1,25 @@
+button {
+    border-radius: 5px;
+    padding: 8px 20px;
+    color: var(--white);
+    background: var(--accent_green);
+    @include transition;
+    @include involve_500_16;
+
+    &:hover {
+        background: var(--black_green);
+    }
+
+    &.l {
+        padding: 20px 24px;
+        border-radius: 10px;
+        @include involve_600_20;
+
+        @include respond(laptop1024) {
+            padding: 18px 22px;
+        }
+        @include respond(mobile640) {
+            padding: 14px 18px;
+        }
+    }
+}

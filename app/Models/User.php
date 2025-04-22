@@ -18,10 +18,39 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'phone',
+        'telegram_id',
         'name',
+        'image',
+        'role_id',
         'email',
-        'password',
+        'password'
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function promocodes()
+    {
+        return $this->hasMany(Promocode::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role_id === 2;
+    }
+
+    public function isOwner()
+    {
+        return $this->role_id === 3;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 104px;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(laptop1024) {
+        padding: 0 20px;
+    }
+
+    @include respond(mobile640) {
+        padding: 0 16px;
+    }
+}

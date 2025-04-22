@@ -1,0 +1,153 @@
+@mixin transition {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == laptop1280 {
+        @media only screen and (width <= 1280px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == laptop1024 {
+        @media only screen and (width <= 1024px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tablet768 {
+        @media only screen and (width <= 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == mobile640 {
+        @media only screen and (width <= 640px) {
+            @content;
+        }
+    }
+}
+
+@mixin involve_700_96 {
+    font-family: "Involve";
+    font-size: 80px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 125%;
+
+    @include respond(laptop1280) {
+        font-size: 74px;
+    }
+    @include respond(laptop1024) {
+        font-size: 60px;
+    }
+    @include respond(tablet768) {
+        font-size: 48px;
+    }
+    @include respond(mobile640) {
+        font-size: 32px;
+    }
+}
+
+@mixin involve_700_48 {
+    font-family: "Involve";
+    font-size: 48px;
+    font-weight: 700;
+    font-style: normal;
+
+    @include respond(laptop1280) {
+        font-size: 40px;
+    }
+    @include respond(tablet768) {
+        font-size: 32px;
+    }
+    @include respond(mobile640) {
+        font-size: 24px;
+    }
+}
+
+@mixin involve_700_32 {
+    font-family: "Involve";
+    font-size: 32px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@mixin involve_700_20 {
+    font-family: "Involve";
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@mixin involve_600_24 {
+    font-family: "Involve";
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@mixin involve_600_20 {
+    font-family: "Involve";
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+
+    @include respond(laptop1024) {
+        font-size: 18px;
+    }
+    @include respond(mobile640) {
+        font-size: 16px;
+    }
+}
+
+@mixin involve_600_16 {
+    font-family: "Involve";
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@mixin involve_500_16 {
+    font-family: "Involve";
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin involve_400_20 {
+    font-family: "Involve";
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin involve_400_18 {
+    font-family: "Involve";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin involve_400_16 {
+    font-family: "Involve";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin gilroy_300_24 {
+    font-family: "Gilroy";
+    font-size: 24px;
+    font-weight: 300;
+
+    @include respond(laptop1280) {
+        font-size: 20px;
+    }
+    @include respond(tablet768) {
+        font-size: 18px;
+    }
+}
