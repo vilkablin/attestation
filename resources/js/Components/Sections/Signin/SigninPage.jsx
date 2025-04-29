@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, router, usePage } from "@inertiajs/react";
-import { BaseButton } from "../../UI/Button/Button";
 import styles from "./signin.module.scss";
-import { Container } from "../../UI/Button/Container/Container";
+import { Container } from "../../UI/Container/Container";
+import { BaseButton } from "../../UI/Button/Button";
 
 export const SigninPage = () => {
     const { props } = usePage();
@@ -15,7 +15,7 @@ export const SigninPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        router.post("/login", formData);
+        router.post("/signin/store", formData);
     };
 
     const handleChange = (e) => {
@@ -74,14 +74,13 @@ export const SigninPage = () => {
                                 )}
                             </div>
 
-                            <div className="flex items-center">
+                            <div className={styles.check}>
                                 <input
                                     id="remember"
                                     name="remember"
                                     type="checkbox"
                                     checked={formData.remember}
                                     onChange={handleChange}
-                                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                                 />
                                 <label
                                     htmlFor="remember"
@@ -92,21 +91,16 @@ export const SigninPage = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <BaseButton
-                                type="submit"
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            >
-                                Войти
-                            </BaseButton>
-                        </div>
+                        <BaseButton
+                            type="submit"
+                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Войти
+                        </BaseButton>
                     </form>
 
-                    <div className="text-center">
-                        <Link
-                            href="/signup"
-                            className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                        >
+                    <div className={styles.text}>
+                        <Link href="/signup">
                             Нет аккаунта? Зарегистрироваться
                         </Link>
                     </div>

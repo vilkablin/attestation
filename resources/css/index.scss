@@ -4,8 +4,11 @@
 
 body {
     font-family: "Involve";
+    color: var(--black);
 }
 
 h2 {
     @include involve_700_48;
 }
+
+//Filament styles

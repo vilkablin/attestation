@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../Button/Container/Container";
+import { Container } from "../Container/Container";
 import styles from "./header.module.scss";
 import { Link, usePage } from "@inertiajs/react";
 import { BaseButton } from "../Button/Button";
@@ -27,6 +27,12 @@ export const Header = () => {
                     <Link className={styles.nav__a} href="/">
                         Контакты
                     </Link>
+
+                    {auth.user && (
+                        <Link className={styles.nav__a} href="/dashboard">
+                            Профиль
+                        </Link>
+                    )}
 
                     {auth.user ? (
                         <Link href="/logout" method="post">

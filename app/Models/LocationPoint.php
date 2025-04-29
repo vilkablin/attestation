@@ -12,14 +12,7 @@ class LocationPoint extends Model
     protected $fillable = [
         'address',
         'places_count',
-        'working_hours',
         'phone',
-        'coordinates'
-    ];
-
-    protected $casts = [
-        'working_hours' => 'json',
-        'coordinates' => 'json'
     ];
 
     public function employees()

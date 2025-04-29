@@ -20,8 +20,14 @@ class Service extends Model
             ->withPivot('price');
     }
 
+
+    public function locationServices()
+    {
+        return $this->hasMany(LocationService::class);
+    }
+
     public function employees()
     {
-        return $this->belongsToMany(Employee::class, 'employee_service');
+        return $this->belongsToMany(Employee::class, 'employee_service', 'service_id', 'employee_id');
     }
 }

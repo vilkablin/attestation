@@ -1,6 +1,10 @@
 button {
     border-radius: 5px;
     padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     color: var(--white);
     background: var(--accent_green);
     @include transition;

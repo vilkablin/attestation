@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\Filament\AdminPanelProvider;
+
 return [
 
     /*
@@ -78,7 +80,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => 'ru',
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 

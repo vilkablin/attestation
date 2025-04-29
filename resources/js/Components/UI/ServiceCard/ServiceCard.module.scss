@@ -1,0 +1,42 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .imgWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 10px;
+        width: 370px;
+        height: 248px;
+
+        @include respond(laptop1280) {
+            width: 340px;
+            height: 220px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    h3 {
+        @include involve_700_20;
+        color: var(--black);
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h4 {
+            @include involve_700_32;
+            color: var(--black);
+        }
+    }
+}

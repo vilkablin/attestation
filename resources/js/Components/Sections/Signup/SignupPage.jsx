@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { router, usePage } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 import { BaseButton } from "../../UI/Button/Button";
 import styles from "./signup.module.scss";
-import { Container } from "../../UI/Button/Container/Container";
+import { Container } from "../../UI/Container/Container";
 
 export default function SignupPage() {
     const { props } = usePage();
     const [formData, setFormData] = useState({
         phone: "",
         name: "",
-        telegram_id: "",
         password: "",
         password_confirmation: "",
         _token: props.csrf_token,
@@ -80,18 +79,6 @@ export default function SignupPage() {
                             </div>
 
                             <div className={styles.label}>
-                                <label htmlFor="telegram_id">ID Telegram</label>
-                                <input
-                                    id="telegram_id"
-                                    name="telegram_id"
-                                    placeholder="@vilka"
-                                    type="text"
-                                    value={formData.telegram_id}
-                                    onChange={handleChange}
-                                />
-                            </div>
-
-                            <div className={styles.label}>
                                 <label htmlFor="password">
                                     Пароль <span>*</span>
                                 </label>
@@ -125,6 +112,10 @@ export default function SignupPage() {
                         <BaseButton type="submit">
                             Зарегистрироваться
                         </BaseButton>
+
+                        <div className={styles.text}>
+                            <Link href="/signin">Уже есть аккаунт? Войти</Link>
+                        </div>
                     </form>
                 </div>
             </div>

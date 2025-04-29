@@ -2,7 +2,7 @@ import React from "react";
 import bg from "@images/introbg.png";
 import { BaseButton } from "../../UI/Button/Button";
 import styles from "./Intro.module.scss";
-import { Container } from "../../UI/Button/Container/Container";
+import { Container } from "../../UI/Container/Container";
 
 export const Intro = () => {
     return (

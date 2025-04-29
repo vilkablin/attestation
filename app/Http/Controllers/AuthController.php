@@ -21,14 +21,12 @@ class AuthController extends Controller
       'phone' => 'required|string|max:255|unique:users',
       'name' => 'required|string|max:255',
       'password' => 'required|string|min:8|confirmed',
-      'telegram_id' => 'nullable|string',
     ]);
 
     $user = User::create([
       'phone' => $request->phone,
       'name' => $request->name,
       'password' => Hash::make($request->password),
-      'telegram_id' => $request->telegram_id,
       'role_id' => 1, // Обычный пользователь
     ]);
 

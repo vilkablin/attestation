@@ -1,0 +1,70 @@
+.footer {
+    background: var(--black);
+    padding: 80px 0;
+    color: var(--white);
+
+    .footer__inner {
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            @include involve_700_20;
+            color: var(--accent_green);
+        }
+
+        .links,
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            h4 {
+                @include involve_600_20;
+            }
+
+            p {
+                span {
+                    @include gilroy_300_16;
+                }
+            }
+
+            .icon {
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+                padding-bottom: 4px;
+            }
+        }
+
+        .links {
+            width: 10%;
+        }
+
+        .contacts {
+            width: 20%;
+        }
+
+        .bot {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 35%;
+
+            h3 {
+                @include involve_700_20;
+            }
+
+            p {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    a {
+        @include transition;
+    }
+
+    a:hover {
+        color: var(--accent_green);
+    }
+}

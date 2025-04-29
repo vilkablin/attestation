@@ -15,7 +15,7 @@ class Employee extends Model
     ];
 
     protected $casts = [
-        'work_schedule' => 'json'
+        'work_schedule' => 'array'
     ];
 
     public function location()
@@ -25,7 +25,7 @@ class Employee extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Service::class, 'employee_service');
+        return $this->belongsToMany(Service::class, 'employee_service', 'employee_id', 'service_id');
     }
 
     public function appointments()

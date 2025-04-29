@@ -25,11 +25,23 @@
             gap: 20px;
             width: 100%;
 
+            .check {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--black);
+
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
             .inputs {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 16px;
 
                 .label {
                     display: flex;
@@ -55,5 +67,20 @@
     }
     .error {
         color: var(--red);
+    }
+}
+
+.text {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        color: var(--black);
+        @include transition;
+        &:hover {
+            color: var(--accent_green);
+        }
     }
 }

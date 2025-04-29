@@ -21,7 +21,9 @@ export const BaseButton = ({
     return (
         <button className={classes} {...props} disabled={disabled}>
             {children}
-            {iconRight && <span className={styles.icon}>{iconRight}</span>}
+            {iconRight && (
+                <img src={iconRight} className={styles.icon} alt="icon" />
+            )}
         </button>
     );
 };

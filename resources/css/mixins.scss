@@ -83,6 +83,12 @@
     font-style: normal;
 }
 
+@mixin involve_600_28 {
+    font-family: "Involve";
+    font-size: 28px;
+    font-weight: 600;
+    font-style: normal;
+}
 @mixin involve_600_24 {
     font-family: "Involve";
     font-size: 24px;
@@ -111,6 +117,12 @@
     font-style: normal;
 }
 
+@mixin involve_500_20 {
+    font-family: "Involve";
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+}
 @mixin involve_500_16 {
     font-family: "Involve";
     font-size: 16px;
@@ -150,4 +162,9 @@
     @include respond(tablet768) {
         font-size: 18px;
     }
+}
+@mixin gilroy_300_16 {
+    font-family: "Gilroy";
+    font-size: 16px;
+    font-weight: 300;
 }

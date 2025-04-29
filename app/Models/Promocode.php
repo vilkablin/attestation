@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Promocode extends Model
 {
@@ -14,9 +15,9 @@ class Promocode extends Model
         'valid_to',
         'usage_limit',
         'used_count',
+        'description',
         'status_id',
-        'user_id',
-        'description'
+        'user_id'
     ];
 
     protected $casts = [
@@ -24,37 +25,25 @@ class Promocode extends Model
         'valid_to' => 'datetime',
     ];
 
-    // Связь со статусом
     public function status(): BelongsTo
     {
         return $this->belongsTo(PromocodeStatus::class);
     }
 
-    // Связь с пользователем
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    // Связь с записями
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class);
-    }
-
-    // Проверка активности
     public function isActive(): bool
     {
-        return $this->status_id === PromocodeStatus::ACTIVE &&
-            now()->between($this->valid_from, $this->valid_to) &&
-            ($this->usage_limit === null || $this->used_count < $this->usage_limit);
+        return $this->status_id === 1 && // 1 = Active
+               now()->between($this->valid_from, $this->valid_to) &&
+               ($this->usage_limit === null || $this->used_count < $this->usage_limit);
     }
 
-    // Применение промокода
-    public function apply()
+    public function apply(): void
     {
-        if ($this->usage_limit !== null) {
-            $this->increment('used_count');
-        }
+        $this->increment('used_count');
     }
 }

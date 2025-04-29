@@ -1,0 +1,59 @@
+.faq {
+    display: flex;
+    width: 100%;
+    padding: 40px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 24px 0 var(--shadow);
+    background: var(--white);
+
+    @include respond(tablet768) {
+        padding: 24px;
+    }
+
+    @include respond(mobile640) {
+        padding: 16px;
+    }
+}
+
+.root {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        color: var(--black);
+        width: max-content;
+        padding-bottom: 32px;
+
+        h2 {
+            z-index: 10;
+        }
+
+        p {
+            @include involve_400_20;
+            color: var(--accent_green);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--light_green);
+
+            @include respond(laptop1280) {
+                left: 40px;
+            }
+        }
+    }
+}

@@ -12,9 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('address');
             $table->integer('places_count');
-            $table->json('working_hours')->nullable();
             $table->string('phone')->nullable();
-            $table->json('coordinates')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,0 +1,50 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 50px 0;
+
+    .title {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        color: var(--black);
+        width: max-content;
+
+        h2 {
+            z-index: 10;
+        }
+
+        p {
+            @include involve_400_20;
+            color: var(--accent_green);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--light_green);
+
+            @include respond(laptop1280) {
+                left: 30px;
+            }
+        }
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+        @include respond(laptop1280) {
+            gap: 32px;
+        }
+    }
+}
