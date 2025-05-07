@@ -16,9 +16,10 @@ class Service extends Model
 
     public function locations()
     {
-        return $this->belongsToMany(LocationPoint::class, 'location_services')
+        return $this->belongsToMany(LocationPoint::class, 'location_services', 'service_id', 'location_id')
             ->withPivot('price');
     }
+
 
 
     public function locationServices()

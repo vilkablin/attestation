@@ -26,4 +26,9 @@ button {
             padding: 14px 18px;
         }
     }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 }

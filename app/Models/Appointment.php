@@ -69,4 +69,20 @@ class Appointment extends Model
     {
         return $this->status_id === AppointmentStatus::STATUS_ACTIVE;
     }
+
+    public function applyPromocode(Promocode $promocode): bool
+    {
+        if (!$promocode->isActive()) {
+            return false;
+        }
+
+        $this->promocode()->associate($promocode);
+        $discount = ($this->price * $promocode->discount) / 100;
+        $this->price -= $discount;
+        $this->save();
+
+        $promocode->apply();
+
+        return true;
+    }
 }

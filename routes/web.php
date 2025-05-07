@@ -3,20 +3,25 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BotController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use App\Models\LocationPoint;
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
+Route::post('/telegram/webhook', [BotController::class, 'webhook']);
+
+Route::get('/', [PageController::class, 'showMainPage']);
+Route::get('/services/{service}', [PageController::class, 'showService'])->name('services.show');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('signup', [AuthController::class, 'showRegistrationForm'])->name('signup');
     Route::post('register', [AuthController::class, 'register']);
     Route::get('signin', [AuthController::class, 'showLoginForm'])->name('signin');
-    Route::post('signin/store', [AuthController::class, 'signin.store']);
+    Route::post('signin/store', [AuthController::class, 'login'])->name('signin.store');
 });
 
 Route::middleware('auth')->group(function () {
@@ -26,10 +31,15 @@ Route::middleware('auth')->group(function () {
 
     // Записи
     Route::resource('appointments', AppointmentController::class)->only([
-        'index',
+        'create',
         'store',
         'destroy'
     ]);
+
+
+    Route::get('/appointment/{locationId}/available-hours', [AppointmentController::class, 'availableHours'])
+        ->name('appointment.availableHours');
+
 
     // Dashboard
     Route::get('/dashboard', function () {

@@ -9,14 +9,14 @@ import { CallBtn } from "../Components/UI/CallBtn/CallBtn";
 import { Footer } from "../Components/UI/Footer/Footer";
 import { FAQ } from "../Components/Sections/Faq/FAQ";
 
-export default function Home() {
+export default function Home({ services }) {
     return (
         <>
             <Head title="Главная" />
             <Header />
             <CallBtn />
             <Intro />
-            <PopularServicesSection />
+            <PopularServicesSection services={services} />
             <FeaturesSection />
             <GallerySection />
             <FAQ />

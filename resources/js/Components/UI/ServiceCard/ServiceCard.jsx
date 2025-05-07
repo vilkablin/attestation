@@ -2,16 +2,24 @@ import React from "react";
 import styles from "./ServiceCard.module.scss";
 import { BaseButton } from "../Button/Button";
 import arrow from "@icons/arrow-icon.svg";
+import { Link, usePage } from "@inertiajs/react";
+
 export const ServiceCard = ({ data }) => {
+    const { auth } = usePage().props;
     return (
         <div className={styles.card}>
             <div className={styles.imgWrapper}>
-                <img src={data.image} alt={data.title} />
+                <img src={`storage/${data.image}`} alt={data.title} />
             </div>
             <h3>{data.title}</h3>
             <div className={styles.price}>
-                <h4>{data.price} ₽</h4>
-                <BaseButton iconRight={arrow}>Записаться</BaseButton>
+                <h4>{Number(data.price).toLocaleString("ru-RU")} ₽</h4>
+
+                <Link href={`/services/${data.id}`} className={styles.link}>
+                    <BaseButton disabled={!auth.user} iconRight={arrow}>
+                        Записаться
+                    </BaseButton>
+                </Link>
             </div>
         </div>
     );

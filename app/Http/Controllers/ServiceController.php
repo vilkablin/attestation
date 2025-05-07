@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Service;
+use Inertia\Inertia;
+use Request;
 
-class ServiceController extends Controller
-{
-    //
-}
+class ServiceController extends Controller {}

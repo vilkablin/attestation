@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Inertia\Inertia;
 
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function showMainPage()
     {
-        return Inertia::render('Home/page', [
+        $services = Service::select('id', 'name as title', 'base_price as price', 'image')->get();
+        return Inertia::render('Home', [
             'title' => 'Автомойка "Чистая машина"',
-            'promotions' => [
-                ['id' => 1, 'name' => 'Комплексная мойка', 'discount' => '20%'],
-                ['id' => 2, 'name' => 'Химчистка салона', 'discount' => '15%'],
-            ]
+            'services' => $services,
+
+        ]);
+    }
+
+    public function showService($id)
+    {
+        $service = Service::select('id', 'name as title', 'base_price as price', 'image', 'description')
+            ->findOrFail($id);
+
+        return Inertia::render('Service', [
+            'service' => $service
         ]);
     }
 }

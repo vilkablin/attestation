@@ -16,11 +16,14 @@
         "vite": "^5.2.8"
     },
     "dependencies": {
+        "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/react": "^2.0.7",
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "motion": "^12.9.2",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-day-picker": "^9.6.7",
+        "react-dom": "^18.2.0",
+        "ziggy-js": "^2.5.2"
     }
 }

@@ -46,7 +46,7 @@ class AppointmentResource extends Resource
 
                         Forms\Components\Select::make('location_id')
                             ->label('Локация')
-                            ->relationship('location', 'name')
+                            ->relationship('location', 'address')
                             ->required(),
 
                         Forms\Components\Select::make('employees')
@@ -79,33 +79,15 @@ class AppointmentResource extends Resource
                         Forms\Components\Select::make('status_id')
                             ->label('Статус')
                             ->relationship('status', 'name')
-                            ->required(),
+                            ->required(), // статус обязательно указывается
 
                         Forms\Components\Textarea::make('comment')
                             ->label('Комментарий')
                             ->columnSpanFull(),
                     ]),
-                Forms\Components\Select::make('promocode_id')
-                    ->label('Промокод')
-                    ->options(fn() => Promocode::where('status_id', 1)
-                        ->where('valid_from', '<=', now())
-                        ->where('valid_to', '>=', now())
-                        ->pluck('code', 'id'))
-                    ->searchable()
-                    ->reactive()
-                    ->afterStateUpdated(function ($state, Forms\Set $set) {
-                        if ($promocode = Promocode::find($state)) {
-                            $set('discount_amount', $promocode->discount);
-                        }
-                    }),
-
-                Forms\Components\TextInput::make('discount_amount')
-                    ->label('Скидка')
-                    ->numeric()
-                    ->disabled()
-                    ->suffix('%'),
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
@@ -152,6 +134,20 @@ class AppointmentResource extends Resource
                     ->icon('heroicon-o-bell')
                     ->label('Уведомить')
                     ->action(fn($record) => $record->notifyUser()),
+                Tables\Actions\Action::make('changeStatus')
+                    ->label('Подтвердить')
+                    ->icon('heroicon-o-check')
+                    ->visible(fn($record) => $record->status_id === 1) // только если статус "Ожидает"
+                    ->action(function ($record) {
+                        $record->update([
+                            'status_id' => 2, // Например, 2 — "Подтверждена"
+                        ]);
+                        // При желании можно уведомить пользователя, отправить событие и т.д.
+                    })
+                    ->requiresConfirmation()
+                    ->color('success')
+                    ->successNotificationTitle('Статус обновлен'),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -159,6 +155,7 @@ class AppointmentResource extends Resource
                 ]),
             ]);
     }
+
     public static function getRelations(): array
     {
         return [

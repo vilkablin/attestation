@@ -1,15 +1,13 @@
 import React from "react";
-import { Head } from "@inertiajs/react";
+import ServicePage from "../Components/Services/ServicePage/ServicePage";
 import { Header } from "../Components/UI/Header/Header";
-import DashboardPage from "../Components/Dashboard/DashboardPage";
 import { Footer } from "../Components/UI/Footer/Footer";
 
-export default function Dashboard() {
+export default function Service({ service }) {
     return (
         <>
-            <Head title="Личный кабинет" />
             <Header />
-            <DashboardPage />
+            <ServicePage service={service} />
             <Footer />
         </>
     );

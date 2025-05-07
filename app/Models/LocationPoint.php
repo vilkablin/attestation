@@ -14,11 +14,11 @@ class LocationPoint extends Model
         'places_count',
         'phone',
     ];
-
     public function employees()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(Employee::class, 'location_id');
     }
+
 
     public function services()
     {
