@@ -8,6 +8,7 @@ import { GallerySection } from "../Components/Sections/GallerySection/GallerySec
 import { CallBtn } from "../Components/UI/CallBtn/CallBtn";
 import { Footer } from "../Components/UI/Footer/Footer";
 import { FAQ } from "../Components/Sections/Faq/FAQ";
+import { TelegramModal } from "../Components/UI/TelegramModal/TelegramModal";
 
 export default function Home({ services }) {
     return (
@@ -16,6 +17,7 @@ export default function Home({ services }) {
             <Header />
             <CallBtn />
             <Intro />
+            <TelegramModal />
             <PopularServicesSection services={services} />
             <FeaturesSection />
             <GallerySection />

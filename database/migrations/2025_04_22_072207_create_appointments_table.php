@@ -20,7 +20,7 @@ return new class extends Migration
             // Внешние ключи
             $table->foreignId('service_id')->constrained()->cascadeOnDelete();
             $table->foreignId('location_id')->constrained('location_points')->cascadeOnDelete();
-            $table->foreignId('status_id')->constrained('appointment_statuses');
+            $table->foreignId('status_id')->constrained('appointment_statuses')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('promocode_id')->nullable()->constrained('promocodes')->nullOnDelete();
 

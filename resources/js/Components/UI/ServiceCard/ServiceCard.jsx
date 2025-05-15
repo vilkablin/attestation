@@ -8,14 +8,17 @@ export const ServiceCard = ({ data }) => {
     const { auth } = usePage().props;
     return (
         <div className={styles.card}>
-            <div className={styles.imgWrapper}>
+            <Link href={`/services/${data.id}`} className={styles.imgWrapper}>
                 <img src={`storage/${data.image}`} alt={data.title} />
-            </div>
+            </Link>
             <h3>{data.title}</h3>
             <div className={styles.price}>
                 <h4>{Number(data.price).toLocaleString("ru-RU")} ₽</h4>
 
-                <Link href={`/services/${data.id}`} className={styles.link}>
+                <Link
+                    href={`/appointments/make/${data.id}`}
+                    className={styles.link}
+                >
                     <BaseButton disabled={!auth.user} iconRight={arrow}>
                         Записаться
                     </BaseButton>

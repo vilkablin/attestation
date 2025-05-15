@@ -3,6 +3,7 @@ import bg from "@images/introbg.png";
 import { BaseButton } from "../../UI/Button/Button";
 import styles from "./Intro.module.scss";
 import { Container } from "../../UI/Container/Container";
+import { Link } from "@inertiajs/react";
 
 export const Intro = () => {
     return (
@@ -18,9 +19,9 @@ export const Intro = () => {
                         где ваш автомобиль обретает <br /> идеальную чистоту и
                         сияние!
                     </p>
-                    <div>
+                    <Link href={"/services"}>
                         <BaseButton size="l">Записаться сейчас</BaseButton>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </Container>

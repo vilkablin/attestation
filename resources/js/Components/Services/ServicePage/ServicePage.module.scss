@@ -1,0 +1,100 @@
+.service {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 0;
+    padding-top: 0px;
+
+    .imgWrapper {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(0.5) grayscale(1);
+        }
+
+        .link {
+            position: absolute;
+            margin-top: 140px;
+            z-index: 10;
+        }
+
+        .title {
+            position: absolute;
+            @include involve_700_96;
+            color: var(--white);
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .description {
+            display: flex;
+            justify-content: space-between;
+
+            h4 {
+                @include involve_700_48;
+                line-height: 100%;
+                width: 35%;
+                text-align: end;
+            }
+
+            p {
+                width: 60%;
+                @include involve_400_16;
+                line-height: 170%;
+                text-align: justify;
+            }
+        }
+
+        .icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .text {
+            display: flex;
+            gap: 10px;
+
+            svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .price,
+            .adress {
+                @include involve_600_24;
+            }
+
+            .adress:not(:last-child) {
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+.breads {
+    display: flex;
+    gap: 4px;
+    padding: 18px 0;
+
+    a {
+        color: var(--black);
+    }
+
+    p {
+        color: var(--accent_green);
+    }
+}

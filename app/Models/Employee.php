@@ -37,7 +37,8 @@ class Employee extends Model
     public function isWorkingDay(Carbon $date): bool
     {
         $schedule = $this->work_schedule;
-        if (!$schedule) {
+
+        if (!isset($schedule['start_date'], $schedule['work_days'], $schedule['rest_days'])) {
             return false;
         }
 
@@ -52,22 +53,58 @@ class Employee extends Model
         return $positionInCycle < $schedule['work_days'];
     }
 
-    public function availableHoursForDate(Carbon $date): array
+    public function setWorkScheduleAttribute($value)
+    {
+        if (!is_array($value)) {
+            throw new \InvalidArgumentException('Work schedule must be an array');
+        }
+        $this->attributes['work_schedule'] = json_encode($value);
+    }
+
+    public function getWorkScheduleAttribute($value)
+    {
+        return json_decode($value, true) ?: [];
+    }
+
+    public function availableHoursForDate(Carbon $date, int $serviceDuration): array
     {
         if (!$this->isWorkingDay($date)) {
-
             return [];
         }
 
         $schedule = $this->work_schedule;
-        $start = Carbon::parse($schedule['work_hours']['start']);
-        $end = Carbon::parse($schedule['work_hours']['end']);
+
+        $start = Carbon::parse($schedule['work_hours']['start'])->copy()->setDateFrom($date);
+        $end = Carbon::parse($schedule['work_hours']['end'])->copy()->setDateFrom($date);
 
         $hours = [];
 
+        $appointments = $this->appointments()
+            ->whereDate('date', $date->toDateString())
+            ->where('status_id', 1)
+            ->get(['date', 'end_date']);
+
         while ($start->lt($end)) {
-            $hours[] = $start->format('H:i');
-            $start->addHour();
+            $slotStart = $start->copy();
+            $slotEnd = $slotStart->copy()->addMinutes($serviceDuration);
+
+            // если конец выходит за пределы рабочего дня — прерываем
+            if ($slotEnd->gt($end)) {
+                break;
+            }
+
+            $isOverlapping = $appointments->contains(function ($appointment) use ($slotStart, $slotEnd) {
+                $appointmentStart = Carbon::parse($appointment->date);
+                $appointmentEnd = Carbon::parse($appointment->end_date);
+
+                return $slotStart->lt($appointmentEnd) && $slotEnd->gt($appointmentStart);
+            });
+
+            if (!$isOverlapping) {
+                $hours[] = $slotStart->format('H:i');
+            }
+
+            $start->addMinutes(60); // шаг между слотами, можно изменить на 30/15
         }
 
         return $hours;

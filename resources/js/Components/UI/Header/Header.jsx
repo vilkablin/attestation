@@ -7,6 +7,8 @@ import { BaseButton } from "../Button/Button";
 export const Header = () => {
     const { auth } = usePage().props;
 
+    console.log(auth.user);
+
     return (
         <Container>
             <header className={styles.root}>
@@ -18,13 +20,13 @@ export const Header = () => {
                     <Link className={styles.nav__a} href="/">
                         Главная
                     </Link>
-                    <Link className={styles.nav__a} href="/">
+                    <Link className={styles.nav__a} href="/services">
                         Услуги
                     </Link>
-                    <Link className={styles.nav__a} href="/">
+                    <Link className={styles.nav__a} href="/#benefits">
                         О нас
                     </Link>
-                    <Link className={styles.nav__a} href="/">
+                    <Link className={styles.nav__a} href="#footer">
                         Контакты
                     </Link>
 

@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import { BaseButton } from "../../../UI/Button/Button";
+import styles from "./PromocodeTab.module.scss";
+import toast from "react-hot-toast";
+import clsx from "clsx";
 
 export function PromocodeTab({ promocodes = [] }) {
     const copyToClipboard = (code) => {
         navigator.clipboard.writeText(code);
-        alert("Промокод скопирован!");
+        toast.success("Промокод скопирован!");
     };
 
     const getStatusStyle = (statusId, validTo) => {
@@ -38,9 +41,9 @@ export function PromocodeTab({ promocodes = [] }) {
     });
 
     return (
-        <div className="promocode-tab">
+        <div className={styles.promocodes}>
             <h2>Мои промокоды</h2>
-            <div className="filters">
+            <div className={styles.btns}>
                 <BaseButton onClick={() => setFilter("all")}>Все</BaseButton>
                 <BaseButton onClick={() => setFilter("active")}>
                     Активные
@@ -53,7 +56,7 @@ export function PromocodeTab({ promocodes = [] }) {
             {!promocodes || promocodes.length === 0 ? (
                 <p>У вас нет активных промокодов</p>
             ) : (
-                <div className="promocode-list">
+                <div className={styles.list}>
                     {filteredPromocodes.map((promocode) => {
                         const statusClass = getStatusStyle(
                             promocode.status_id,
@@ -65,16 +68,19 @@ export function PromocodeTab({ promocodes = [] }) {
                         return (
                             <div
                                 key={promocode.id}
-                                className={`promocode-card ${statusClass}`}
+                                className={clsx(
+                                    styles.promocode_card,
+                                    styles[statusClass]
+                                )}
                             >
-                                <div className="promocode-header">
+                                <div className={styles.promocode_header}>
                                     <h3>{promocode.code}</h3>
-                                    <span className="discount">
+                                    <span className={styles.discount}>
                                         -{promocode.discount}%
                                     </span>
                                 </div>
 
-                                <div className="promocode-details">
+                                <div className={styles.promocode_details}>
                                     <p>
                                         <strong>Срок действия:</strong> до{" "}
                                         {format(
@@ -92,13 +98,13 @@ export function PromocodeTab({ promocodes = [] }) {
                                             : "Неактивен"}
                                     </p>
                                     {promocode.description && (
-                                        <p className="description">
+                                        <p className={styles.description}>
                                             {promocode.description}
                                         </p>
                                     )}
                                 </div>
 
-                                <div className="promocode-actions">
+                                <div className={styles.promocode_actions}>
                                     <BaseButton
                                         onClick={() =>
                                             copyToClipboard(promocode.code)

@@ -18,10 +18,36 @@ class AuthController extends Controller
   public function register(Request $request)
   {
     $request->validate([
-      'phone' => 'required|string|max:255|unique:users',
-      'name' => 'required|string|max:255',
-      'password' => 'required|string|min:8|confirmed',
+      'phone' => [
+        'required',
+        'regex:/^((\+7|7|8)+([0-9]){10})$/',
+        'unique:users,phone',
+      ],
+      'name' => [
+        'required',
+        'string',
+        'max:255',
+        'regex:/^[А-Яа-яЁё\s\-]+$/u',
+      ],
+      'password' => [
+        'required',
+        'string',
+        'min:8',
+        'confirmed',
+      ],
+    ], [
+      'phone.required' => 'Телефон обязателен для заполнения.',
+      'phone.regex' => 'Введите корректный номер телефона (например, +79001234567).',
+      'phone.unique' => 'Этот номер уже зарегистрирован.',
+
+      'name.required' => 'Имя обязательно для заполнения.',
+      'name.regex' => 'Имя должно содержать только кириллицу.',
+
+      'password.required' => 'Пароль обязателен.',
+      'password.min' => 'Пароль должен содержать не менее 8 символов.',
+      'password.confirmed' => 'Пароли не совпадают.',
     ]);
+
 
     $user = User::create([
       'phone' => $request->phone,
@@ -43,8 +69,15 @@ class AuthController extends Controller
   public function login(Request $request)
   {
     $credentials = $request->validate([
-      'phone' => 'required|string',
-      'password' => 'required',
+      'phone' => [
+        'required',
+        'regex:/^((\+7|7|8)+([0-9]){10})$/',
+      ],
+      'password' => 'required|string',
+    ], [
+      'phone.required' => 'Введите номер телефона.',
+      'phone.regex' => 'Введите корректный номер телефона.',
+      'password.required' => 'Введите пароль.',
     ]);
 
     if (Auth::attempt(['phone' => $credentials['phone'], 'password' => $credentials['password']], $request->remember)) {

@@ -2,6 +2,10 @@
 @use "./consts.scss" as *;
 @forward "mixins";
 
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Involve";
     color: var(--black);

@@ -14,6 +14,25 @@ button {
         background: var(--black_green);
     }
 
+    &.xs {
+        padding: 4px 8px;
+        @include involve_400_14;
+    }
+
+    &.xxs {
+        padding: 0;
+        background: none;
+    }
+
+    &.ml {
+        padding: 10px 24px;
+        @include involve_600_20;
+
+        @include respond(mobile640) {
+            padding: 14px 18px;
+        }
+    }
+
     &.l {
         padding: 20px 24px;
         border-radius: 10px;

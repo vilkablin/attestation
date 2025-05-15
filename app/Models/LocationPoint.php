@@ -26,6 +26,12 @@ class LocationPoint extends Model
             ->withPivot('price');
     }
 
+    public function locationServices()
+    {
+        return $this->hasMany(LocationService::class, 'location_id');
+    }
+
+
     public function appointments()
     {
         return $this->hasManyThrough(Appointment::class, Employee::class);

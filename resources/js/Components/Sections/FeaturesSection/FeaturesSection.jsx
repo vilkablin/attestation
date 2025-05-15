@@ -8,7 +8,7 @@ import { FeatureCard } from "./FeatureCard/FeatureCard";
 export const FeaturesSection = () => {
     return (
         <Container>
-            <div className={styles.root}>
+            <div className={styles.root} id="benefits">
                 <div className={styles.title}>
                     <h2>Почему именно мы?</h2>
                     <p>Сделаем ваш автомобиль эффектнее и ярче!</p>

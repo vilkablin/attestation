@@ -1,11 +1,11 @@
 .profileTab {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 
     h2 {
-        @include involve_600_28;
-        font-style: italic;
+        color: var(--accent_green);
+        padding-bottom: 20px;
     }
 
     .profileView {

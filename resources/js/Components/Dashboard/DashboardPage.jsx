@@ -9,7 +9,7 @@ import { PromocodeTab } from "./Tabs/PromocodeTab/PromocodeTab";
 
 export default function DashboardPage() {
     const { auth } = usePage().props;
-    const [activeTab, setActiveTab] = useState("profile");
+    const [activeTab, setActiveTab] = useState("appointments");
     const [editing, setEditing] = useState(false);
     const [formData, setFormData] = useState({
         name: auth.user.name,
@@ -28,9 +28,7 @@ export default function DashboardPage() {
     };
 
     const handleCancelAppointment = (appointmentId) => {
-        if (confirm("Вы уверены, что хотите отменить запись?")) {
-            router.delete(`/appointments/${appointmentId}`);
-        }
+        router.delete(`/appointments/${appointmentId}`);
     };
 
     return (
@@ -78,6 +76,13 @@ export default function DashboardPage() {
                         >
                             Мои промокоды
                         </button>
+                        {auth.user.role_id === 2 && (
+                            <a target="_blank" href="/admin">
+                                <button className={`${styles.navItem}`}>
+                                    Администратор
+                                </button>
+                            </a>
+                        )}
                     </nav>
                 </div>
 

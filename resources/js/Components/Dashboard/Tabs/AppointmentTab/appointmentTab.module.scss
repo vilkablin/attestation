@@ -1,0 +1,106 @@
+.appointment {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h2 {
+        color: var(--accent_green);
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            padding: 10px;
+            align-items: center;
+
+            .date {
+                width: 140px;
+            }
+
+            .title {
+                width: 160px;
+            }
+
+            .status {
+                width: 220px;
+            }
+
+            .address {
+                width: 185px;
+            }
+        }
+
+        .item {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            padding: 10px;
+            align-items: center;
+
+            &:nth-child(even) {
+                background: var(--dark_gray);
+            }
+
+            .date {
+                width: 140px;
+            }
+
+            .title {
+                width: 160px;
+                p {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    @include involve_500_16;
+                }
+            }
+
+            .status {
+                width: 220px;
+
+                p {
+                    border-radius: 5px;
+                    padding: 4px 8px;
+                    width: fit-content;
+                    &.light {
+                        background: var(--white_red);
+                    }
+
+                    &.green {
+                        background: var(--light_green);
+                    }
+
+                    &.blue {
+                        background: var(--light_blue);
+                    }
+
+                    &.red {
+                        background: var(--light_red);
+                    }
+
+                    &.purple {
+                        background: var(--purple);
+                    }
+                }
+            }
+
+            .address {
+                width: 140px;
+                p {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+            .btn {
+                width: 30px;
+                justify-self: end;
+            }
+        }
+    }
+}

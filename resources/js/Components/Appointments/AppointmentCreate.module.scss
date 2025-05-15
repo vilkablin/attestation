@@ -1,0 +1,71 @@
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.formInner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field input,
+.field select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.error {
+    color: #dc2626;
+    font-size: 0.9rem;
+}
+
+.timeList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeItem {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f3f4f6;
+    transition: background-color 0.2s ease;
+}
+
+.timeItem:hover {
+    background-color: #e5e7eb;
+}
+
+.active {
+    background-color: #d1fae5;
+    border-color: #10b981;
+}
+
+.totalPrice {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}

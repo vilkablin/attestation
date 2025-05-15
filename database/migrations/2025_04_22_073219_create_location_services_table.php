@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('location_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('location_id')->constrained('location_points');
-            $table->foreignId('service_id')->constrained();
+            $table->foreignId('location_id')->constrained('location_points')->cascadeOnDelete();
+            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
             $table->decimal('price', 10, 2);
             $table->timestamps();
 

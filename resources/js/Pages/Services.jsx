@@ -1,13 +1,13 @@
 import React from "react";
+import { ServicesPage } from "../Components/Services/ServicesPage/ServicesPage";
 import { Header } from "../Components/UI/Header/Header";
 import { Footer } from "../Components/UI/Footer/Footer";
-import AppointmentCreatePage from "../Components/Appointments/AppointmentCreate";
 
-export default function Appointment({ service, locations }) {
+export default function Services({ services, filters }) {
     return (
         <>
             <Header />
-            <AppointmentCreatePage service={service} locations={locations} />
+            <ServicesPage services={services} filters={filters} />
             <Footer />
         </>
     );

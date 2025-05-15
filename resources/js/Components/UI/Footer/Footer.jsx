@@ -6,7 +6,7 @@ import { BaseButton } from "../Button/Button";
 
 export const Footer = () => {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id="footer">
             <Container>
                 <div className={styles.footer__inner}>
                     <div className={styles.logo}>
@@ -92,15 +92,15 @@ export const Footer = () => {
                             <p>
                                 <span>Адреса:</span> г. Казань, <br /> ул.
                                 Чистопольская 75; <br />
-                                ул. Гвардейская 32
+                                ул. Ямашева 82
                             </p>
                         </div>
                     </div>
                     <div className={styles.links}>
                         <h4>Навигация</h4>
                         <Link href={"/"}>Главная</Link>
-                        <Link href={"/"}>Услуги</Link>
-                        <Link href={"/"}>О нас</Link>
+                        <Link href={"/services"}>Услуги</Link>
+                        <Link href={"/#benefits"}>О нас</Link>
                     </div>
 
                     <div className={styles.bot}>
@@ -109,7 +109,11 @@ export const Footer = () => {
                             Оставайтесь в курсе всех новостей вместе с нашим
                             ботом
                         </p>
-                        <a href="/" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://t.me/BudetChistoKazanBot"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <BaseButton>Подписаться на рассылку</BaseButton>
                         </a>
                     </div>

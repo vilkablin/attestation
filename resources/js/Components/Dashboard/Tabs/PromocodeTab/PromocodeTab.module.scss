@@ -1,19 +1,25 @@
-.promocode-tab {
-    padding: 20px;
+.promocodes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     h2 {
-        margin-bottom: 20px;
-        font-size: 24px;
-        color: #333;
+        color: var(--accent_green);
+        padding-bottom: 20px;
     }
 
-    .promocode-list {
+    .btns {
+        display: flex;
+        gap: 20px;
+    }
+
+    .list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 20px;
     }
 
-    .promocode-card {
+    .promocode_card {
         border: 1px solid #e0e0e0;
         border-radius: 8px;
         padding: 15px;
@@ -35,7 +41,7 @@
             opacity: 0.5;
         }
 
-        .promocode-header {
+        .promocode_header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,7 +62,7 @@
             }
         }
 
-        .promocode-details {
+        .promocode_details {
             margin-bottom: 15px;
 
             p {
@@ -77,7 +83,7 @@
             }
         }
 
-        .promocode-actions {
+        .promocode_actions {
             display: flex;
             justify-content: flex-end;
         }

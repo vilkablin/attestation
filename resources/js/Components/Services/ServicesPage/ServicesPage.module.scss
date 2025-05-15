@@ -1,0 +1,55 @@
+.catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 60px;
+}
+
+.breads {
+    display: flex;
+    gap: 4px;
+    padding: 18px 0;
+
+    a {
+        color: var(--black);
+    }
+
+    p {
+        color: var(--accent_green);
+    }
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: flex-end;
+
+    label {
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+        font-weight: 500;
+    }
+
+    input {
+        padding: 0.5rem;
+        border: 1px solid var(--shadow);
+        border-radius: 6px;
+        font-size: 1rem;
+        width: 200px;
+
+        &:focus {
+            border-color: var(--accent_green);
+            outline: none;
+        }
+    }
+}
+
+.cardsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 60px;
+    column-gap: 20px;
+}

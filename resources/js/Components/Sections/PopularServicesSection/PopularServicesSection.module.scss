@@ -40,9 +40,10 @@
     }
 
     .services {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 40px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 40px;
         @include respond(laptop1280) {
             gap: 32px;
         }

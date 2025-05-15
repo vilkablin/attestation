@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('employee_service', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained();
-            $table->foreignId('service_id')->constrained();
+            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
 
             $table->unique(['employee_id', 'service_id']);
