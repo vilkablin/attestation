@@ -58,7 +58,7 @@ export default function SignupPage() {
                                     type="tel"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    placeholder="+7 (XXX) XXX-XX-XX"
+                                    placeholder="+7XXXXXXXXXX"
                                     required
                                 />
                             </div>

@@ -29,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->path('admin')
+            ->brandName('Будет Чисто!')
             ->login(\Filament\Pages\Auth\Login::class)
             ->colors([
                 'primary' => '#09C690',

@@ -38,12 +38,19 @@ class Promocode extends Model
     public function isActive(): bool
     {
         return $this->status_id === 1 && // 1 = Active
-               now()->between($this->valid_from, $this->valid_to) &&
-               ($this->usage_limit === null || $this->used_count < $this->usage_limit);
+            now()->between($this->valid_from, $this->valid_to) &&
+            ($this->usage_limit === null || $this->used_count < $this->usage_limit);
     }
 
     public function apply(): void
     {
         $this->increment('used_count');
+    }
+
+    public function scopeValid($query)
+    {
+        return $query->where('valid_from', '<=', now())
+            ->where('valid_to', '>=', now())
+            ->whereColumn('used_count', '<', 'usage_limit');
     }
 }

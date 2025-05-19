@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources\ServiceResource\RelationManagers;
 
+use App\Models\Employee;
 use App\Models\EmployeeService;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,7 +15,7 @@ class EmployeesRelationManager extends RelationManager
 {
   protected static string $relationship = 'employees';
 
-  protected static ?string $model = EmployeeService::class;
+  protected static ?string $model = Employee::class;
 
   protected static ?string $title = 'Сотрудники, оказывающие услугу';
 
@@ -43,11 +44,11 @@ class EmployeesRelationManager extends RelationManager
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('employee.name')
+        Tables\Columns\TextColumn::make('name')
           ->label('Имя сотрудника')
           ->searchable(),
 
-        Tables\Columns\TextColumn::make('employee.phone')
+        Tables\Columns\TextColumn::make('phone')
           ->label('Телефон'),
 
         Tables\Columns\TextColumn::make('created_at')
