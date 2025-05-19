@@ -22,7 +22,8 @@ class User extends Authenticatable
         'name',
         'image',
         'role_id',
-        'password'
+        'password',
+        'telegram_chat_id',
     ];
 
     public function role()

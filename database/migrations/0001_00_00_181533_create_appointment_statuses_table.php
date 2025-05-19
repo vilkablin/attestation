@@ -12,17 +12,17 @@ return new class extends Migration
         Schema::create('appointment_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('color')->default('#6b7280');
+            $table->string('color')->default('light');
             $table->timestamps();
         });
 
         // Стандартные статусы
         DB::table('appointment_statuses')->insert([
-            ['id' => 1, 'name' => 'Ожидает подтверждения', 'color' => '#f59e0b'],
-            ['id' => 2, 'name' => 'Подтверждена', 'color' => '#10b981'],
-            ['id' => 3, 'name' => 'Завершена', 'color' => '#3b82f6'],
-            ['id' => 4, 'name' => 'Отменена', 'color' => '#ef4444'],
-            ['id' => 5, 'name' => 'Активна', 'color' => '#8b5cf6'],
+            ['id' => 1, 'name' => 'Ожидает подтверждения', 'color' => 'light'],
+            ['id' => 2, 'name' => 'Подтверждена', 'color' => 'green'],
+            ['id' => 3, 'name' => 'Завершена', 'color' => 'blue'],
+            ['id' => 4, 'name' => 'Отменена', 'color' => 'red'],
+            ['id' => 5, 'name' => 'Активна', 'color' => 'purple'],
         ]);
     }
 

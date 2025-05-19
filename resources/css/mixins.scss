@@ -170,6 +170,11 @@
         font-size: 18px;
     }
 }
+@mixin gilroy_300_18 {
+    font-family: "Gilroy";
+    font-size: 18px;
+    font-weight: 300;
+}
 @mixin gilroy_300_16 {
     font-family: "Gilroy";
     font-size: 16px;

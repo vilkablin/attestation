@@ -262,6 +262,11 @@ class BotController extends Controller
                     break;
                 }
 
+                if ($user->telegram_chat_id !== $chatId) {
+                    $user->telegram_chat_id = $chatId;
+                    $user->save();
+                }
+
                 // Если пользователь есть, но еще не получал промокод через бота
                 if (!$user->promoCodes()->exists()) {
                     $this->createWelcomePromoCode($user, $chatId);
@@ -290,6 +295,7 @@ class BotController extends Controller
                     'name' => 'Telegram User',
                     'phone' => $data['phone'],
                     'password' => bcrypt($text),
+                    'telegram_chat_id' => $chatId,
                 ]);
 
                 // Создаем промокод

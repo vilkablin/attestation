@@ -71,7 +71,7 @@ export const Footer = () => {
                             </svg>
                             <p>
                                 <span>Время работы:</span>
-                                <br /> Ежедневно с 9 до 22
+                                <br /> Ежедневно с 10 до 19
                             </p>
                         </div>
                         <div className={styles.icon}>

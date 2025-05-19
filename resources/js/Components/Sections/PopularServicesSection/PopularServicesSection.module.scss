@@ -47,5 +47,10 @@
         @include respond(laptop1280) {
             gap: 32px;
         }
+
+        @include respond(tablet768) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
