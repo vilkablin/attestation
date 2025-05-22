@@ -7,7 +7,16 @@
         display: flex;
         justify-content: space-between;
 
+        @include respond(tablet768) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 42px;
+        }
+
         .logo {
+            display: flex;
+            align-items: start;
+            gap: 12px;
             @include involve_700_20;
             color: var(--accent_green);
         }
@@ -38,10 +47,16 @@
 
         .links {
             width: 10%;
+            @include respond(tablet768) {
+                width: 100%;
+            }
         }
 
         .contacts {
             width: 20%;
+            @include respond(tablet768) {
+                width: 100%;
+            }
         }
 
         .bot {
@@ -49,6 +64,9 @@
             flex-direction: column;
             gap: 8px;
             width: 35%;
+            @include respond(tablet768) {
+                width: 100%;
+            }
 
             h3 {
                 @include involve_700_20;

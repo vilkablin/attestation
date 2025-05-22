@@ -11,7 +11,7 @@ export default function ServicePage({ service, locations }) {
     return (
         <Container>
             <div className={styles.breads}>
-                <Link href={"/"}>Каталог</Link> <p>/ {service.title}</p>
+                <Link href={"/services"}>Каталог</Link> <p>/ {service.title}</p>
             </div>
             <div className={styles.service}>
                 <div className={styles.imgWrapper}>

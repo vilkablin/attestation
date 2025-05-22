@@ -26,6 +26,16 @@
     margin-bottom: 2rem;
     align-items: flex-end;
 
+    @include respond(tablet768) {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+
+        div {
+            width: 100%;
+        }
+    }
+
     label {
         display: block;
         font-size: 0.875rem;
@@ -40,6 +50,10 @@
         font-size: 1rem;
         width: 200px;
 
+        @include respond(tablet768) {
+            width: 80%;
+        }
+
         &:focus {
             border-color: var(--accent_green);
             outline: none;
@@ -52,4 +66,9 @@
     flex-wrap: wrap;
     row-gap: 60px;
     column-gap: 20px;
+
+    @include respond(tablet768) {
+        align-items: center;
+        justify-content: center;
+    }
 }

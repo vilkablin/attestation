@@ -14,11 +14,16 @@
         color: var(--black);
         width: max-content;
 
+        @include respond(tablet768) {
+            width: 100%;
+        }
+
         h2 {
             z-index: 10;
         }
 
         p {
+            text-align: center;
             @include involve_400_20;
             color: var(--accent_green);
         }
@@ -35,6 +40,9 @@
 
             @include respond(laptop1280) {
                 left: 30px;
+            }
+            @include respond(tablet768) {
+                display: none;
             }
         }
     }

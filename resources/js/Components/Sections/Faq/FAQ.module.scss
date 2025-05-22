@@ -32,12 +32,17 @@
         width: max-content;
         padding-bottom: 32px;
 
+        @include respond(tablet768) {
+            width: 100%;
+        }
+
         h2 {
             z-index: 10;
         }
 
         p {
             @include involve_400_20;
+            text-align: center;
             color: var(--accent_green);
         }
 
@@ -53,6 +58,10 @@
 
             @include respond(laptop1280) {
                 left: 40px;
+            }
+
+            @include respond(tablet768) {
+                display: none;
             }
         }
     }

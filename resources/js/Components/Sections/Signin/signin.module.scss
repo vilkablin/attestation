@@ -5,6 +5,11 @@
     align-items: center;
     justify-content: center;
 
+    @include respond(tablet768) {
+        display: block;
+        margin-top: 60px;
+    }
+
     .wrapper {
         display: flex;
         flex-direction: column;

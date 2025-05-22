@@ -25,6 +25,10 @@
         color: var(--black);
         width: max-content;
 
+        @include respond(tablet768) {
+            width: 100%;
+        }
+
         h2 {
             z-index: 10;
         }
@@ -32,6 +36,7 @@
         p {
             @include involve_400_20;
             color: var(--accent_green);
+            text-align: center;
         }
 
         &::before {
@@ -46,6 +51,10 @@
 
             @include respond(laptop1280) {
                 left: 0px;
+            }
+
+            @include respond(tablet768) {
+                display: none;
             }
         }
     }

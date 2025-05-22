@@ -5,7 +5,16 @@ import { Toaster } from "react-hot-toast";
 import React from "react";
 
 createInertiaApp({
-    resolve: (name) => import(`./Pages/${name}`),
+    resolve: async (name) => {
+        const pages = import.meta.glob("./Pages/**/*.jsx");
+        const path = `./Pages/${name}.jsx`;
+
+        if (!pages[path]) {
+            throw new Error(`Page not found: ${path}`);
+        }
+
+        return pages[path]();
+    },
     setup({ el, App, props }) {
         createRoot(el).render(
             <>

@@ -11,6 +11,14 @@ export default defineConfig({
         }),
         react(),
     ],
+    build: {
+        manifest: true,
+        rollupOptions: {
+            input: {
+                app: "resources/js/app.jsx",
+            },
+        },
+    },
     resolve: {
         alias: {
             "@": "/resources/js",

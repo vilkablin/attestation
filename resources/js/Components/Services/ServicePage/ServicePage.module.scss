@@ -43,11 +43,21 @@
             display: flex;
             justify-content: space-between;
 
+            @include respond(tablet768) {
+                flex-direction: column;
+                gap: 24px;
+            }
+
             h4 {
                 @include involve_700_48;
                 line-height: 100%;
                 width: 35%;
                 text-align: end;
+
+                @include respond(tablet768) {
+                    width: 100%;
+                    text-align: start;
+                }
             }
 
             p {
@@ -55,6 +65,10 @@
                 @include involve_400_16;
                 line-height: 170%;
                 text-align: justify;
+
+                @include respond(tablet768) {
+                    width: 100%;
+                }
             }
         }
 
