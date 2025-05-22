@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { BaseButton } from "../../../UI/Button/Button";
-import styles from "./ProfileTab.module.scss";
+import styles from "./profileTab.module.scss";
 import { Link, router } from "@inertiajs/react";
 
 export function ProfileTab({
